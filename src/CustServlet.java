@@ -55,7 +55,7 @@ public class CustServlet extends HttpServlet {
             pstmt = con.prepareStatement(sql);
             String LastName=request.getParameter("LastName");
             pstmt.setString(1, LastName);
-            
+            rs = pstmt.executeQuery();
     		String nextURL="/Customer.jsp";
     		String message="FirstName";
     		request.setAttribute("FirstName",message);
@@ -76,7 +76,7 @@ public class CustServlet extends HttpServlet {
     		String message9="customers.AddressID";
     		request.setAttribute("customers.AddressID",message9);
     		getServletContext().getRequestDispatcher(nextURL).forward(request,response);
-    		rs = pstmt.executeQuery();
+    		
 
 		}catch (SQLException e){
 
